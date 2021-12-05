@@ -23,7 +23,8 @@
           "num_workers": 2
         },
         "libraries": [
-          /** {
+          /** 
+          {
             "jar": "dbfs:/my-jar.jar",
             "egg": "dbfs:/my/egg",
             "whl": "dbfs:/my/whl",
@@ -40,7 +41,8 @@
               "package": "geojson",
               "repo": "https://my-repo.com"
             }
-          } **/
+          }
+         */
         ],
         "email_notifications": {
           "on_start": [],
