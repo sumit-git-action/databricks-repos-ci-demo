@@ -22,7 +22,27 @@
           "node_type_id": "Standard_F4s",
           "num_workers": 2
         },
-        "libraries": [],
+        "libraries": [
+          {
+            "jar": "dbfs:/my-jar.jar",
+            "egg": "dbfs:/my/egg",
+            "whl": "dbfs:/my/whl",
+            "pypi": {
+              "package": "simplejson==3.8.0",
+              "repo": "https://my-repo.com"
+            },
+            "maven": {
+              "coordinates": "org.jsoup:jsoup:1.7.2",
+              "repo": "https://my-repo.com",
+              "exclusions": []
+            },
+            "cran": {
+              "package": "geojson",
+              "repo": "https://my-repo.com"
+            }
+          }
+        ],
+
         "email_notifications": {
           "on_start": [],
           "on_success": [],
