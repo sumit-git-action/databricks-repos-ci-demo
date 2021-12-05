@@ -1,42 +1,61 @@
 {
-    "default": {
-        "jobs": [
-            {
-                "name": "nutter-testing-suite",
-                "new_cluster": {
-                    "spark_version": "7.3.x-cpu-ml-scala2.12",
-                    "node_type_id": "Standard_F4s",
-                    "num_workers": 1
-                },
-                "libraries": [],
-                "max_concurrent_runs": 1,
-                "max_retries": 0,
-                "notebook_task": {
-                    "notebook_path": "/Repos/Staging/databricks-repos-ci-demo/notebooks/tests/test-suite"
-                }
+  "default": {
+    "jobs": [
+      {
+        "name": "nutter-testing-suite",
+        "new_cluster": {
+          "spark_version": "7.3.x-cpu-ml-scala2.12",
+          "node_type_id": "Standard_F4s",
+          "num_workers": 1
+        },
+        "libraries": [],
+        "max_concurrent_runs": 1,
+        "max_retries": 0,
+        "notebook_task": {
+          "notebook_path": "/Repos/Staging/databricks-repos-ci-demo/notebooks/tests/test-suite"
+        }
+      },
+      {
+        "name": "sumit-sample",
+        "new_cluster": {
+          "spark_version": "7.3.x-cpu-ml-scala2.12",
+          "node_type_id": "Standard_F4s",
+          "num_workers": 2
+        },
+        "libraries": [
+          /** {
+            "jar": "dbfs:/my-jar.jar",
+            "egg": "dbfs:/my/egg",
+            "whl": "dbfs:/my/whl",
+            "pypi": {
+              "package": "simplejson==3.8.0",
+              "repo": "https://my-repo.com"
             },
-          {
-                "name": "sumit-sample",
-                "new_cluster": {
-                    "spark_version": "7.3.x-cpu-ml-scala2.12",
-                    "node_type_id": "Standard_F4s",
-                    "num_workers": 2
-                },
-                "libraries": [],
-                "email_notifications": {
-                    "on_start": [],
-                    "on_success": [],
-                    "on_failure": []
-                },
-                "max_retries": 0,
-                "spark_python_task": {
-                    "python_file": "databricks_repos_ci_code/Jobs/entrypoint.py",
-                    "parameters": [
-                        "--conf-file",
-                        "conf/sample.json"
-                    ]
-                }
+            "maven": {
+              "coordinates": "org.jsoup:jsoup:1.7.2",
+              "repo": "https://my-repo.com",
+              "exclusions": []
+            },
+            "cran": {
+              "package": "geojson",
+              "repo": "https://my-repo.com"
             }
-        ]
-    }
+          } **/
+        ],
+        "email_notifications": {
+          "on_start": [],
+          "on_success": [],
+          "on_failure": []
+        },
+        "max_retries": 0,
+        "spark_python_task": {
+          "python_file": "databricks_repos_ci_code/Jobs/entrypoint.py",
+          "parameters": [
+            "--conf-file",
+            "conf/sample.json"
+          ]
+        }
+      }
+    ]
+  }
 }

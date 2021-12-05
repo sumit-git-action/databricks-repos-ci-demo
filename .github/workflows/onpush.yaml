@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  test-pipeline:
+  CI-pipeline:
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 4
