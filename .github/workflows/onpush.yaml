@@ -42,8 +42,11 @@ jobs:
       - name: Install dependencies
         run: pip install -U -r dev-requirements.txt
       
-      - name: Deploy the code and launch integration tests
+      - name: Deploy the code 
         run: |
           databricks repos update --path=/Repos/Staging/databricks-repos-ci-demo --branch=${{ env.GITHUB_HEAD_REF_SLUG }}
           dbx deploy --debug --files-only  --deployment-file=conf/staging.json --no-package
+          dbx deploy --debug --jobs=sumit-sample
+      - name: Launch integration tests 
+        run: |
           dbx launch --job=nutter-testing-suite --as-run-submit --trace
