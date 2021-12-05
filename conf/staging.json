@@ -14,6 +14,28 @@
                 "notebook_task": {
                     "notebook_path": "/Repos/Staging/databricks-repos-ci-demo/notebooks/tests/test-suite"
                 }
+            },
+          {
+                "name": "sumit-sample",
+                "new_cluster": {
+                    "spark_version": "7.3.x-cpu-ml-scala2.12",
+                    "node_type_id": "Standard_F4s",
+                    "num_workers": 2
+                },
+                "libraries": [],
+                "email_notifications": {
+                    "on_start": [],
+                    "on_success": [],
+                    "on_failure": []
+                },
+                "max_retries": 0,
+                "spark_python_task": {
+                    "python_file": "databricks_repos_ci_code/Jobs/entrypoint.py",
+                    "parameters": [
+                        "--conf-file",
+                        "conf/sample.json"
+                    ]
+                }
             }
         ]
     }
