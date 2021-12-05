@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-from de_ml_cicd_git_action import __version__
+from databricks_repos_ci_code import __version__
 #
 setup(
     name="databricks_repos_ci_code",
