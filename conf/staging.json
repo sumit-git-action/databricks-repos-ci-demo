@@ -23,7 +23,7 @@
           "num_workers": 2
         },
         "libraries": [ ],
-          /** 
+          /*
           [{
             "jar": "dbfs:/my-jar.jar",
             "egg": "dbfs:/my/egg",
